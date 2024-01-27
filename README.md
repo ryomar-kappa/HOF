@@ -17,3 +17,9 @@ npm ci
 npm start
 ```
 で起動
+
+## デプロイ方法
+```
+npm run build
+firebase deploy --only hosting
+```
