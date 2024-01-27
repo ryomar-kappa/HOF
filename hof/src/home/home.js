@@ -11,10 +11,10 @@ const Home = () => {
           <img src={logo} className="App-logo" alt="logo" />
           <p>ようこそHOFプロジェクトへ!</p>
           <Button
-            variant="outlined"
+            variant="contained"
             size="large"
             component={Link}
-            to="/register"
+            to="/inquiry"
           >
             始める
           </Button>
