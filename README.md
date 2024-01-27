@@ -11,13 +11,9 @@ npm install -g firebase-tools
 firebase login
 ```
 
-
+### React
 ```
 npm ci
-```
-
-## React
-```
 npm start
 ```
 で起動
