@@ -1,22 +1,25 @@
 import { Link } from "react-router-dom";
-import logo from '../logo.svg';
-import '../App.css';
+import logo from "../logo.svg";
+import "../App.css";
+import { Button } from "@mui/material";
 
 const Home = () => {
   return (
     <>
-       <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          ようこそHOFプロジェクトへ!
-        </p>
-       <div>
-        新規登録は<Link to={`/register/`}>こちら</Link>
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <p>ようこそHOFプロジェクトへ!</p>
+          <Button
+            variant="outlined"
+            size="large"
+            component={Link}
+            to="/register"
+          >
+            始める
+          </Button>
+        </header>
       </div>
-      </header>
-    </div>
-      
     </>
   );
 };
