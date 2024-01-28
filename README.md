@@ -13,7 +13,7 @@ firebase login
 
 ### React
 ```
-npm ci
+npm install
 npm start
 ```
 で起動
