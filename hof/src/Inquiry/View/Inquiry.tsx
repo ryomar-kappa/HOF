@@ -4,7 +4,7 @@ import { css } from "@emotion/react";
 import BookDetail from "./BookDetail/BookDetail";
 import { useState } from "react";
 import { Button } from "@mui/material";
-import InquiryState from "../ImquiryState";
+import InquiryState from "../State/ImquiryState";
 
 const Inquiry = () => {
   const [titleText, setCount] = useState<InquiryState>(
