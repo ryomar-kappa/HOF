@@ -2,17 +2,20 @@
 import { css } from "@emotion/react";
 import { Typography } from "@mui/material";
 
-const BookDetail = () => {
+const BookDetail = (props: { title: string }) => {
+  const { title } = props;
   return (
     <>
       <div css={detailArea}>
         <div css={pictureArea}></div>
         <div css={infoArea}>
-          <Typography variant="subtitle1" css = {title}>達人プログラマー</Typography>
-          <div css = {infoAreaContents}>
-              <Typography>オーム社</Typography>
-              <div css ={sy8}></div>
-              <Typography>David Thomas、Andrew Hunt</Typography>
+          <Typography variant="subtitle1" css={title}>
+            {title}
+          </Typography>
+          <div css={infoAreaContents}>
+            <Typography>オーム社</Typography>
+            <div css={sy8}></div>
+            <Typography>David Thomas、Andrew Hunt</Typography>
           </div>
         </div>
       </div>
@@ -28,7 +31,7 @@ const detailArea = css({
   display: "flex",
   height: bookDetailAreaHeight,
   width: "400px",
-  margin:"20px"
+  margin: "20px",
 });
 
 const pictureArea = css({
@@ -38,9 +41,9 @@ const pictureArea = css({
 });
 const infoArea = css({
   height: bookDetailAreaHeight,
-  display:"flex",
-  flexDirection:"column",
-  justifyContent:"space-between",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",
   width: "215px",
 });
 
@@ -51,11 +54,9 @@ const sy8 = css({
   height: "8px",
 });
 
-const infoAreaContents = css({
-})
-
+const infoAreaContents = css({});
 
 const title = css({
   fontWeight: "bold",
-  paddingTop:"8px"
+  paddingTop: "8px",
 });
