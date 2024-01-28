@@ -1,25 +1,65 @@
-import { Link } from "react-router-dom";
-import Card from "./Card";
-import { Button } from "@mui/material";
-import readData from "../repository/BookRepository";
-
+/** @jsxImportSource @emotion/react */
+import Header from "./header/header";
+import { css } from "@emotion/react";
+import BookDetail from "./BookDetail/BookDetail";
 
 const Register = () => {
   return (
     <>
-      <h1>一覧ページ</h1>
-      <div>
-        ログインは<Link to={`/login/`}>こちら</Link>
+      <div css={backGround}>
+        <Header />
+        <div css={contents}>
+          <div css={logoArea}>
+            <p>とてもかっこいいアプリの名前</p>
+          </div>
+            <div css={inquiryArea}>
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+            <BookDetail />
+          </div>
+        </div>
       </div>
-      <div>
-        <Link to={`/`}>ホームに戻る</Link>
-      </div>
-      <Card />
-      <Button variant="contained" size="large" onClick={readData}>
-        本を追加
-      </Button>
     </>
   );
 };
 
 export default Register;
+
+const backGround = css({
+  backgroundColor: "#F6AB00",
+ minHeight:"100svh",
+ paddingLeft:"1vh",
+ paddingRight:"1vh"
+});
+
+const contents = css({
+  minHeight: "80vh",
+  backgroundColor: "white",
+  borderRadius: "10px"
+});
+
+const logoArea = css({
+  display: "flex",
+  minHeight: "20vh",
+  justifyContent: "center",
+});
+
+const inquiryArea = css({
+  display:"flex",
+  flexWrap:"wrap",
+  height: "60vh",
+  backgroundColor: "#FDF6E5",
+  overflow:"auto",
+  justifyContent:"center"
+});
