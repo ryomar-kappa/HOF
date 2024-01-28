@@ -6,7 +6,7 @@ async function fetchBooks(): Promise<Book[]> {
   const booksCollectionRef = collection(db, "books");
   const querySnapshot = await getDocs(booksCollectionRef);
 
-  const bookList: Book[] = [];
+  const result: Book[] = [];
 
   querySnapshot.docs.forEach((doc) => {
     const data = doc.data();
@@ -15,11 +15,10 @@ async function fetchBooks(): Promise<Book[]> {
     const publisher: string = data.publisher;
 
     const book = new Book(title, author, publisher);
-    bookList.push(book);
+    result.push(book);
   });
-  console.log(bookList);
 
-  return bookList;
+  return result;
 }
 
 export default fetchBooks;
