@@ -1,5 +1,5 @@
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "./firebase";
+import { db } from "./Firebase";
 import Book from "../Inquiry/State/Book";
 
 async function fetchBooks(): Promise<Book[]> {
