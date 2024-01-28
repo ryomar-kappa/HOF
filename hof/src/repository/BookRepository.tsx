@@ -10,9 +10,9 @@ async function fetchBooks(): Promise<Book[]> {
 
   querySnapshot.docs.forEach((doc) => {
     const data = doc.data();
-    const title:string = data.title; // 仮に "title" がプロパティ名だと仮定
-    const author:string = data.author; // 仮に "author" がプロパティ名だと仮定
-    const publisher:string = data.publisher; // 仮に "publisher" がプロパティ名だと仮定
+    const title:string = data.title; 
+    const author:string = data.author; 
+    const publisher:string = data.publisher; 
 
     const book = new Book(title, author, publisher);
     bookList.push(book);
