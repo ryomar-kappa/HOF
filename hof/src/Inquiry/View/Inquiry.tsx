@@ -23,9 +23,6 @@ const Inquiry = () => {
         <div css={contents}>
           <div css={logoArea}>
             <p>とてもかっこいいアプリの名前</p>
-            <Button variant="contained" size="large" onClick={fetchBooks}>
-              データ取得
-            </Button>
           </div>
           <div css={inquiryArea}>
             {Array.from({ length: state.numberOfBooks() }).map((_, index) => (
