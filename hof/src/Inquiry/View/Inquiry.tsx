@@ -1,18 +1,19 @@
 /** @jsxImportSource @emotion/react */
 import Header from "./Header/Header";
 import { css } from "@emotion/react";
-import BookDetail from "./BookDetail/BookDetail";
+import BookDetail from "./BookDetail/BookDetailView";
 import { useState } from "react";
 import { Button } from "@mui/material";
-import InquiryState from "../State/ImquiryState";
+import InquiryState from "../State/InquiryState";
+import Book from "../State/Book";
 
 const Inquiry = () => {
-  const [titleText, setCount] = useState<InquiryState>(
-    new InquiryState(["初期のタイトル"])
+  const [state, setState] = useState<InquiryState>(
+    new InquiryState([new Book('初期タイトル','高山龍馬','シンプレクス'),new Book('初期タイトル2','四宮','D3')])
   );
 
   const handleClick = () => {
-    setCount(new InquiryState(["変更後のタイトル"]));
+    setState(new InquiryState([new Book('変更後タイトル','松原一郎','クロスピア'),new Book('平本おにぎりの全て','平本柊','D1')]));
   };
   return (
     <>
@@ -26,7 +27,14 @@ const Inquiry = () => {
             </Button>
           </div>
           <div css={inquiryArea}>
-            <BookDetail title={titleText.getFirstBook()} />
+           
+      {Array.from({ length: state.numberOfBooks() }).map((_, index) => (
+        <BookDetail 
+          title={state.getTitle(index)}
+          author={state.getAuthor(index)}
+          publisher={state.getPublisher(index)}
+        />
+      ))}
           </div>
         </div>
       </div>

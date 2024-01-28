@@ -2,8 +2,8 @@
 import { css } from "@emotion/react";
 import { Typography } from "@mui/material";
 
-const BookDetail = (props: { title: string }) => {
-  const { title } = props;
+const BookDetail = (props: { title: string ,author:string,publisher:string}) => {
+  const { title ,author,publisher} = props;
   return (
     <>
       <div css={detailArea}>
@@ -13,9 +13,9 @@ const BookDetail = (props: { title: string }) => {
             {title}
           </Typography>
           <div css={infoAreaContents}>
-            <Typography>オーム社</Typography>
+            <Typography>{publisher}</Typography>
             <div css={sy8}></div>
-            <Typography>David Thomas、Andrew Hunt</Typography>
+            <Typography>{author}</Typography>
           </div>
         </div>
       </div>
