@@ -25,14 +25,14 @@ const BookDetail = (props: {
     <>
       <div css={detailArea}>
         <div css={pictureArea}></div>
-        <Sx8></Sx8>
+        <Sx8 />
         <div css={infoArea}>
           <Typography variant="subtitle1" css={title}>
             {title}
           </Typography>
           <div css={infoAreaContents}>
             <Typography>{publisher}</Typography>
-            <Sy8></Sy8>
+            <Sy8 />
             <Typography>{author}</Typography>
             <Button css={buttonStyle} onClick={() => hundleOnClick()}>
               借りる
