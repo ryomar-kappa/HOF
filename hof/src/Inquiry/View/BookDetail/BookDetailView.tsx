@@ -1,6 +1,8 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
-import { Typography } from "@mui/material";
+import { Button, Typography, styled } from "@mui/material";
+import { Sx8, Sy8 } from "../../../util/SpaceUtil";
+import { Colors } from "../../../util/ColorsUtil";
 
 const BookDetail = (props: {
   title: string;
@@ -12,14 +14,16 @@ const BookDetail = (props: {
     <>
       <div css={detailArea}>
         <div css={pictureArea}></div>
+        <Sx8></Sx8>
         <div css={infoArea}>
           <Typography variant="subtitle1" css={title}>
             {title}
           </Typography>
           <div css={infoAreaContents}>
             <Typography>{publisher}</Typography>
-            <div css={sy8}></div>
+            <Sy8></Sy8>
             <Typography>{author}</Typography>
+            <Button css={buttonStyle}>借りる</Button>
           </div>
         </div>
       </div>
@@ -51,16 +55,14 @@ const infoArea = css({
   width: "215px",
 });
 
-const sy20 = css({
-  height: "20px",
-});
-const sy8 = css({
-  height: "8px",
-});
-
 const infoAreaContents = css({});
 
-const title = css({
+const buttonStyle = css({
+  color: "white",
   fontWeight: "bold",
-  paddingTop: "8px",
+  backgroundColor: Colors.primary(),
+  "&:hover": {
+    backgroundColor: Colors.primary(),
+  },
+  borderRadius: "20px",
 });

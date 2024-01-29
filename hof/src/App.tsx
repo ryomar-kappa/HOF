@@ -3,9 +3,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Inquiry from "./Inquiry/View/Inquiry";
 import Login from "./login/login";
 import Home from "./home/home";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-
 
 function App() {
   return (
@@ -20,5 +17,3 @@ function App() {
 }
 
 export default App;
-
-

@@ -5,6 +5,7 @@ import BookDetail from "./BookDetail/BookDetailView";
 import { useEffect, useState } from "react";
 import InquiryState from "../State/InquiryState";
 import fetchBooks from "../../repository/BookRepository";
+import { Colors } from "../../util/ColorsUtil";
 
 const Inquiry = () => {
   const [state, setState] = useState<InquiryState>(new InquiryState([]));
@@ -41,14 +42,14 @@ const Inquiry = () => {
 export default Inquiry;
 
 const backGround = css({
-  backgroundColor: "#F6AB00",
+  backgroundColor: Colors.primary(),
   minHeight: "100svh",
   paddingLeft: "1vh",
   paddingRight: "1vh",
 });
 
 const contents = css({
-  minHeight: "80vh",
+  minHeight: "85svh",
   backgroundColor: "white",
   borderRadius: "10px",
 });
@@ -62,7 +63,7 @@ const logoArea = css({
 const inquiryArea = css({
   display: "flex",
   flexWrap: "wrap",
-  height: "60vh",
+  height: "65vh",
   backgroundColor: "#FDF6E5",
   overflow: "auto",
   justifyContent: "center",
