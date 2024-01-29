@@ -20,6 +20,7 @@ const BookDetail = (props: {
   const hundleOnClick = () => {
     setState(true);
   };
+  Modal.setAppElement("#root");
   return (
     <>
       <div css={detailArea}>

@@ -27,6 +27,7 @@ const Inquiry = () => {
           <div css={inquiryArea}>
             {Array.from({ length: state.numberOfBooks() }).map((_, index) => (
               <BookDetail
+                key={index}
                 title={state.getTitle(index)}
                 author={state.getAuthor(index)}
                 publisher={state.getPublisher(index)}
