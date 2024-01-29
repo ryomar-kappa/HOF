@@ -3,6 +3,11 @@ import { css } from "@emotion/react";
 import { Button, Typography, styled } from "@mui/material";
 import { Sx8, Sy8 } from "../../../util/SpaceUtil";
 import { Colors } from "../../../util/ColorsUtil";
+import Modal from "react-modal";
+import { useState } from "react";
+import { Controls, Player } from "@lottiefiles/react-lottie-player";
+import complete from "../../../Assets/complete.json";
+import { AnimationItem } from "lottie-web";
 
 const BookDetail = (props: {
   title: string;
@@ -10,6 +15,11 @@ const BookDetail = (props: {
   publisher: string;
 }) => {
   const { title, author, publisher } = props;
+  const [isOpenModal, setState] = useState<boolean>(false);
+  const [completeItem, setCompleteItem] = useState<AnimationItem>();
+  const hundleOnClick = () => {
+    setState(true);
+  };
   return (
     <>
       <div css={detailArea}>
@@ -23,7 +33,30 @@ const BookDetail = (props: {
             <Typography>{publisher}</Typography>
             <Sy8></Sy8>
             <Typography>{author}</Typography>
-            <Button css={buttonStyle}>借りる</Button>
+            <Button css={buttonStyle} onClick={() => hundleOnClick()}>
+              借りる
+            </Button>
+
+            <Modal
+              isOpen={isOpenModal}
+              style={customModalStyles}
+              onRequestClose={() => {
+                setState(false);
+              }}
+            >
+              本当に本を借りるのか？？
+              <br />
+              <Button css={buttonStyle} onClick={() => completeItem?.play()}>
+                借りる
+              </Button>
+              <Player
+                lottieRef={(instance) => {
+                  setCompleteItem(instance);
+                }}
+                src={complete}
+                style={{ height: "100px", width: "100px" }}
+              ></Player>
+            </Modal>
           </div>
         </div>
       </div>
@@ -66,3 +99,14 @@ const buttonStyle = css({
   },
   borderRadius: "20px",
 });
+
+const customModalStyles = {
+  content: {
+    width: "50vh",
+    height: "30vh",
+    margin: "auto",
+  },
+  overlay: {
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  },
+};
