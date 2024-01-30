@@ -5,7 +5,7 @@ import { Sx8, Sy8 } from "../../../util/SpaceUtil";
 import { Colors } from "../../../util/ColorsUtil";
 import Modal from "react-modal";
 import { useState } from "react";
-import { Controls, Player } from "@lottiefiles/react-lottie-player";
+import { Player } from "@lottiefiles/react-lottie-player";
 import complete from "../../../Assets/complete.json";
 import { AnimationItem } from "lottie-web";
 
@@ -15,12 +15,28 @@ const BookDetail = (props: {
   publisher: string;
 }) => {
   const { title, author, publisher } = props;
-  const [isOpenModal, setState] = useState<boolean>(false);
+  const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
   const [completeItem, setCompleteItem] = useState<AnimationItem>();
-  const hundleOnClick = () => {
-    setState(true);
-  };
+
   Modal.setAppElement("#root");
+  const modal = (
+    <Modal
+      isOpen={isOpenModal}
+      style={customModalStyles}
+      onRequestClose={() => setIsOpenModal(false)}
+    >
+      本当に本を借りるのか？？
+      <br />
+      <Button css={buttonStyle} onClick={() => completeItem?.play()}>
+        借りる
+      </Button>
+      <Player
+        lottieRef={(instance) => setCompleteItem(instance)}
+        src={complete}
+        style={{ height: "100px", width: "100px" }}
+      ></Player>
+    </Modal>
+  );
   return (
     <>
       <div css={detailArea}>
@@ -34,30 +50,10 @@ const BookDetail = (props: {
             <Typography>{publisher}</Typography>
             <Sy8 />
             <Typography>{author}</Typography>
-            <Button css={buttonStyle} onClick={() => hundleOnClick()}>
+            <Button css={buttonStyle} onClick={() => setIsOpenModal(true)}>
               借りる
             </Button>
-
-            <Modal
-              isOpen={isOpenModal}
-              style={customModalStyles}
-              onRequestClose={() => {
-                setState(false);
-              }}
-            >
-              本当に本を借りるのか？？
-              <br />
-              <Button css={buttonStyle} onClick={() => completeItem?.play()}>
-                借りる
-              </Button>
-              <Player
-                lottieRef={(instance) => {
-                  setCompleteItem(instance);
-                }}
-                src={complete}
-                style={{ height: "100px", width: "100px" }}
-              ></Player>
-            </Modal>
+            {modal}
           </div>
         </div>
       </div>
